@@ -5,12 +5,16 @@ class Board extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            square: Array(9).fill(null),
+            square: [
+                        'O', null, 'X',
+                        'X', 'X', 'O',
+                        'O', null, null,
+                    ],
         };
     }
     renderSquare(i){
         return(
-            <Square />
+            <Square value={this.state.square[i]} />
         )
     }   
 
