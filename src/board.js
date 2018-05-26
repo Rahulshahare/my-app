@@ -2,23 +2,28 @@ import React from 'react';
 import Square from './square';
 
 class Board extends React.Component{
+    renderSquare(i){
+        return(
+            <Square value={i}/>
+        )
+    }   
     render(){
         return(
             <div className="board">
-                <div className="1">
-                    <Square value={1} />
-                    <Square value={2} />
-                    <Square value={3} />
+                <div className="board-row">
+                    {this.renderSquare(0)}
+                    {this.renderSquare(1)}
+                    {this.renderSquare(2)}
                 </div>
-                <div className="2">
-                    <Square value={4} />
-                    <Square value={5} />
-                    <Square value={6} />
+                <div className="board-row">
+                    {this.renderSquare(3)}
+                    {this.renderSquare(4)}
+                    {this.renderSquare(5)}
                 </div>
-                <div className="3">
-                    <Square value={7} />
-                    <Square value={8} />
-                    <Square value={9} />
+                <div className="board-row">
+                    {this.renderSquare(6)}
+                    {this.renderSquare(7)}
+                    {this.renderSquare(8)}
                 </div>
 
             </div>
