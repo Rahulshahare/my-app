@@ -1,20 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import ShoppingList from './shoppinglist';
 
-class ShoppingList extends React.Component{
+class Shopping extends React.Component{
     render(){
         return(
             <div className="shopping-list">
-                <h1>Shopping list for</h1>
-                <ul>
-                    <li>instagram</li>
-                    <li>whatsaap</li>
-                    <li>tinder</li>
-                </ul>
+               <ShoppingList/>
+               <ShoppingList/>
             </div>
         );
     }
 }
 
-ReactDOM.render(<ShoppingList/>,document.getElementById('root'));
+ReactDOM.render(<Shopping/>,document.getElementById('root'));
