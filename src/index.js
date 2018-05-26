@@ -7,8 +7,8 @@ class Shopping extends React.Component{
     render(){
         return(
             <div className="shopping-list">
-               <ShoppingList/>
-               <ShoppingList/>
+               <ShoppingList name="Hello"/>
+               <ShoppingList name="Hello"/>
             </div>
         );
     }
