@@ -15,3 +15,4 @@ class Square extends React.Component{
 }
 
 export default Square;
+/*its no more needed, its converted into function*/
