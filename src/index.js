@@ -8,7 +8,7 @@ class Shopping extends React.Component{
         return(
             <div className="shopping-list">
                <ShoppingList name="Hello"/>
-               <ShoppingList name="Hello"/>
+               <ShoppingList name="I am Wizkumar"/>
             </div>
         );
     }
