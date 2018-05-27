@@ -64,11 +64,7 @@ class Board extends React.Component{
         )
     }
 
-    reSetting(){
-        this.setState({
-            squares: Array(9).fill(null)
-        });
-    }
+    
 
 
     render(){
@@ -104,9 +100,7 @@ class Board extends React.Component{
                     {this.renderSquare(7)}
                     {this.renderSquare(8)}
                 </div>
-                <div>
-                    <button onClick={this.reSetting}>Reset</button>
-                </div>
+               
 
             </div>
         );
