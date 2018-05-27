@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './tic tac toe/index.css';
-import Game from './tic tac toe/game';
+import './statecms/bootstrap.min.css';
+import State from './statecms/state';
 
-ReactDOM.render(<Game/>,document.getElementById('root'));
+ReactDOM.render(<State/>,document.getElementById('root'));
 
 
 
