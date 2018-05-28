@@ -51,6 +51,10 @@ class Button extends React.Component{
 
         return ButtonSize;
     }
+
+    handleClick(){
+        alert("Button is Clcked");
+    }
     
     render(){
         
@@ -58,7 +62,7 @@ class Button extends React.Component{
 
         
         return(
-            <button className={Class}>{this.props.name}</button>
+            <button className={Class} onClick = {this.handleClick}>{this.props.name}</button>
         )
     }
 }
@@ -66,9 +70,10 @@ class Button extends React.Component{
 export default Button;
 
 /*Usage
+
     <Button name={"NameOfButton"} type={"TypeOfButton"} size={"SizeOfButton"}/>
 
-    this Button Class built as per as Bootstrap doc and specification.
+    This Button Class built as per as Bootstrap doc and specification.
     options::
     TypeOfButton :(default, primary, success, info, warning, danger)
     SizeOfButton :(large, default, small, extrasmall)
