@@ -9,7 +9,9 @@ class Button extends React.Component{
     }
 
     buttonType(type){
+
         var ButtonClass;
+
         switch (type) {
             case 'default': ButtonClass = "btn btn-default";
                 break;
@@ -26,14 +28,33 @@ class Button extends React.Component{
             default: ButtonClass = "btn btn-default";
                 break;
         }
+
         return ButtonClass;
+
     }
 
-    
+    buttonSize(size){
+        var ButtonSize;
+
+        switch (size) {
+            case 'large': ButtonSize= ' btn-lg';
+                break;
+            case 'default': ButtonSize = '';
+                break;
+            case 'small': ButtonSize = ' btn-sm';
+                break;
+            case 'extrasmall': ButtonSize =  ' btn-xs';
+                break;
+            default: ButtonSize = '';
+                break;
+        }
+
+        return ButtonSize;
+    }
     
     render(){
         
-        var ButtonClass;
+        var Class = this.buttonType(this.props.type);
 
         switch (this.props.type) {
             case 'default': ButtonClass = "btn btn-default";
@@ -53,15 +74,16 @@ class Button extends React.Component{
         }
 
         switch (this.props.size) {
-            case 'large': ButtonClass = ButtonClass + ' btn-lg';
+            var ButtonSize;
+            case 'large': ButtonSize= ' btn-lg';
                 break;
-            case 'default': ButtonClass = ButtonClass;
+            case 'default': ButtonSize = '';
                 break;
-            case 'small': ButtonClass = ButtonClass + ' btn-sm';
+            case 'small': ButtonSize = ' btn-sm';
                 break;
-            case 'extrasmall': ButtonClass = ButtonClass + ' btn-xs';
+            case 'extrasmall': ButtonSize =  ' btn-xs';
                 break;
-            default: ButtonClass = ButtonClass;
+            default: ButtonSize = '';
                 break;
         }
 
