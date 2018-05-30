@@ -85,7 +85,7 @@ export default Button;
 
 /*Usage
 
-    <Button name={"NameOfButton"} type={"TypeOfButton"} size={"SizeOfButton"}/>
+    <Button name={"NameOfButton"} clickEvent={"onClickFUnction"} Align={alignment} type={"TypeOfButton"} size={"SizeOfButton"}/>
 
     This Button Class built as per as Bootstrap doc and specification.
     options::
