@@ -12,6 +12,7 @@ class State extends React.Component{
           states: [],
           showAddModal : false,
         };
+
       }
     
       componentDidMount() {
@@ -41,6 +42,11 @@ class State extends React.Component{
             showAddModal: !this.state.showAddModal,
         });
       }
+      //After Now for every function
+      //use ES6 bound method 
+      //i.e. =()=> for any function
+      //so that you can call it from
+      //anywhere in lifecycle
 
     
     render(){
