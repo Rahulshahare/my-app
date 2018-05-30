@@ -1,6 +1,7 @@
 import React from 'react';
 import StateMap  from './statemap';
 import Button from '../button';
+import AddStateModel from './addStateModal';
 
 
 
@@ -16,7 +17,7 @@ class State extends React.Component{
       }
     
       componentDidMount() {
-        fetch('http://localhost/oceangreen/admin/api/readState.php?Key=Authority')
+        fetch('http://oceangreen.ml/admin/api/readState.php?Key=Authority')
         .then(blob => blob.json())
         .then(data => {
           console.log(data);
@@ -37,7 +38,7 @@ class State extends React.Component{
           alert("Are you sure to delete state of id "+ id);
       }
       AddModelShowing = () =>{
-        alert("I am toggling a Modal");
+        //alert("I am toggling a Modal");
         this.setState({
             showAddModal: !this.state.showAddModal,
         });
@@ -51,6 +52,7 @@ class State extends React.Component{
     
     render(){
         return(
+        <div>
             <div className="panel panel-primary">
                 <div className="panel-heading">
                     States
@@ -62,8 +64,14 @@ class State extends React.Component{
                         editing = {this.editing}
                         deleting = {this.deleting}
                     />
+                   
                 </div>
             </div>
+
+            <AddStateModel 
+            ShowModel={this.state.showAddModal}
+            AddModelShowing={this.AddModelShowing}/>
+        </div>
 
            
         )

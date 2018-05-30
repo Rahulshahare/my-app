@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './statecms/bootstrap.min.css';
+import './statecms/style.css';
 import State from './statecms/state';
 //import Button from './button';
 
