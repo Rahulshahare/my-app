@@ -1,7 +1,7 @@
 {
   "name": "my-app",
   "homepage": "http://myapp.github.io/myapp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "react": "^16.4.0",
@@ -13,6 +13,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy":"npm run build",
+    "deploy" : "gh-pages -d build"
   }
 }
