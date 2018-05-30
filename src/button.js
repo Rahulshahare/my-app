@@ -53,7 +53,7 @@ class Button extends React.Component{
     }
 
     handleClick(){
-        alert("Button is Clcked");
+        //alert("You have click a button.");
     }
     
     render(){
@@ -62,7 +62,7 @@ class Button extends React.Component{
 
         
         return(
-            <button className={Class} onClick = {this.handleClick}>{this.props.name}</button>
+            <button className={Class} onClick = {this.props.clickEvent}>{this.props.name}</button>
         )
     }
 }
