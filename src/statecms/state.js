@@ -35,7 +35,7 @@ class State extends React.Component{
       deleting(id){
           alert("Are you sure to delete state of id "+ id);
       }
-      AddModelShowing (){
+      AddModelShowing = () =>{
         alert("I am toggling a Modal");
         this.setState({
             showAddModal: !this.state.showAddModal,
