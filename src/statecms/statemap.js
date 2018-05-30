@@ -5,7 +5,7 @@ class StateMap extends React.Component{
     render(){
        
             const doubled = this.props.StatesData.map((text,i) =>
-            <tr>
+            <tr className = {text.active == 1? 'info' : 'warning' }>
                 <td key={i}>{text.id}</td>
                 <td>{text.location_name}</td>
                 <td>{text.active == 1?
