@@ -1,5 +1,6 @@
 import React from 'react';
 import StateMap  from './statemap';
+import Button from '../button';
 
 
 
@@ -37,11 +38,21 @@ class State extends React.Component{
     
     render(){
         return(
-            <StateMap 
-                StatesData={this.state.states}
-                editing = {this.editing}
-                deleting = {this.deleting}
-            />
+            <div className="panel panel-primary">
+                <div className="panel-heading">
+                    States
+                    <Button name={"Add New State"} type={"primary"} size={"extrasmall"} Align={"right"}/>
+                </div>
+                <div className="panel-body">
+                    <StateMap 
+                        StatesData={this.state.states}
+                        editing = {this.editing}
+                        deleting = {this.deleting}
+                    />
+                </div>
+            </div>
+
+           
         )
     }
 }
