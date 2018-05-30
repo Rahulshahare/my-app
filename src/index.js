@@ -3,37 +3,9 @@ import ReactDOM from 'react-dom';
 import './statecms/bootstrap.min.css';
 import State from './statecms/state';
 //import Button from './button';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-const BasicExample = () => (
-    <Router>
-      <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/state">States</Link>
-          </li>
-          
-        </ul>
-  
-        <hr />
-  
-        <Route exact path="/" component={Home} />
-        <Route path="/state" component={stateCms} />
-       
-      </div>
-    </Router>
-  );
 
-  const Home = () => (
-    <div>
-      <h2>Welcome to Development</h2>
-    </div>
-  );
-
-class stateCms extends React.Component{
+class StateCms extends React.Component{
     render(){
         return(
             <div className="container">
@@ -46,7 +18,7 @@ class stateCms extends React.Component{
     }
 }
 
-ReactDOM.render(<BasicExample/>,document.getElementById('root'));
+ReactDOM.render(<StateCms/>,document.getElementById('root'));
 
 
 
