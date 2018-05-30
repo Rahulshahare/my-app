@@ -51,6 +51,18 @@ class Button extends React.Component{
 
         return ButtonSize;
     }
+    buttonAlign(position){
+        var Vertex;
+        switch (position) {
+            case 'left': Vertex = ' pull-left'
+                break;
+            case 'right': Vertex = ' pull-right'
+                break;
+            default: Vertex = '';
+                break;
+        }
+        return Vertex;
+    }
 
     handleClick(){
         //alert("You have click a button.");
@@ -58,7 +70,9 @@ class Button extends React.Component{
     
     render(){
         
-        var Class = this.buttonType(this.props.type) + this.buttonSize(this.props.size);
+        var Class = this.buttonType(this.props.type) + 
+                    this.buttonSize(this.props.size) +
+                    this.buttonAlign(this.props.Align);
 
         
         return(
