@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../button';
+import Alert from './alert';
 
 
 
@@ -9,22 +10,69 @@ class AddStateModel extends React.Component{
         this.state = {
             StateName:'',
             AddButtonStatus:'disabled',
+            Error:'',
+            Success:'',
         };
     }
     close= ()=>{
         this.props.AddModelShowing();
     }
-    StateNameChange = (e) =>{
+    stateNameChange = (e) =>{
         this.setState({
             StateName: e.target.value,
             AddButtonStatus:'',
         })
+        
+    }
+
+    save = () =>{
         if(!this.state.StateName){
             this.setState({
                 AddButtonStatus:'disabled',
+                Error:'State Name is Empty',
             })
+            return false;
+        }else{
+            alert("we can add state");
         }
+
+        fetch('http://localhost/oceangreen/admin/api/AddNewState.php ', {
+            method: 'post',
+            body: 'StateName='+ this.state.StateName,
+          })
+         
+          .then(function (data) {
+            console.log('Request succeeded with JSON response', data);
+            alert(data);
+          })
+          .catch(function (error) {
+            console.log('Request failed', error);
+          });
+          //save state
+
+          axios.post('http://localhost/oceangreen/admin/api/AddNewState.php', {
+            firstName: 'StateName='+ this.state.StateName,
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+
+
+
     }
+    resetModalState = () =>{
+        this.setState({
+            StateName:'',
+            AddButtonStatus:'disabled',
+            Error:'',
+            Success:'',
+
+        })
+    }
+
     render(){
         if(!this.props.ShowModel){
             return false;
@@ -39,13 +87,21 @@ class AddStateModel extends React.Component{
                         <span className="modal-title">Add New State</span>
                     </div>
                     <div className="modal-body">
+                    {this.state.Error?
+                        <Alert  errorType={'danger'} clickEvent={this.resetModalState} errorText={this.state.Error}/>
+                         : null
+                    }
+                    {this.state.Success?
+                        <Alert  errorType={'success'} clickEvent={this.resetModalState} errorText={this.state.Success}/>
+                         : null
+                    }
                     <form>
                                     <input 
-                                        onChange={this.StateNameChange}
+                                        onChange={this.stateNameChange}
                                         type="text" 
                                         value={this.state.StateName} 
                                         className="form-control borderRadiusZero" 
-                                        autocomplete="off" 
+                                        autoComplete="off" 
                                         autoFocus="true"
                                         required="required"
                                         placeholder="Enter State Name"
@@ -54,7 +110,7 @@ class AddStateModel extends React.Component{
                     </div>
                     
                     <div className="modal-footer">
-                    <Button name={"Add New State"} status={this.state.AddButtonStatus}  type={"primary"} size={"extrasmall"}/>
+                    <Button name={"Add New State"} clickEvent={this.save} status={this.state.AddButtonStatus}  type={"primary"} size={"extrasmall"}/>
                     <Button name={"Close"} clickEvent={this.close}  type={"default"} size={"extrasmall"}/>
                     </div>
                     </div>
