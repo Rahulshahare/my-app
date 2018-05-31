@@ -61,18 +61,7 @@ class AddStateModel extends React.Component{
 
     }
 
-    postToServer = () =>{
-        const params = new URLSearchParams();
-        params.append('StateName', this.state.StateName);
-        
-
-            axios.post('http://localhost/oceangreen/admin/api/AddNewState.php',params)
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-            })
-
-    }
+    
     resetModalState = () =>{
         this.setState({
             StateName:'',
