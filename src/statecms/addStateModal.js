@@ -49,7 +49,7 @@ class AddStateModel extends React.Component{
         params.append('itsNew', 'YES');
         
 
-            axios.post('http://localhost/oceangreen/admin/api/AddNewState.php',params)
+            axios.post('http://oceangreen.ml/admin/api/AddNewState.php',params)
             .then(res => {
                 //console.log(res);
                 //console.log(res.data);

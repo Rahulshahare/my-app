@@ -21,7 +21,7 @@ class State extends React.Component{
       }
 
       getFromServer = () =>{
-        axios.get('http://localhost/oceangreen/admin/api/readState.php?Key=Authority')
+        axios.get('http://oceangreen.ml/admin/api/readState.php?Key=Authority')
         .then(response =>{
             //console.log(response.data);
             //console.log(JSON.stringify(response.data));
@@ -35,7 +35,7 @@ class State extends React.Component{
 
       RefreshData = (AddedStateName) =>{
 
-        var url = "http://localhost/oceangreen/admin/api/getAddedState.php?StateName="+AddedStateName;
+        var url = "http://oceangreen.ml/admin/api/getAddedState.php?StateName="+AddedStateName;
             axios.get(url)
                 .then(response =>{
                     
