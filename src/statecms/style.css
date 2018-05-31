@@ -28,3 +28,8 @@
 .modal-dialog {
     margin: 70px auto;
 }
+
+.alert {
+    padding: 10px;
+    border-radius: 4px;
+}
