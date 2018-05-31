@@ -22,13 +22,13 @@ class State extends React.Component{
 
       getFromServer = () =>{
         axios.get('http://localhost/oceangreen/admin/api/readState.php?Key=Authority')
-        .then(function(response) {
-          console.log(response.data);
-          console.log(response.status);
-          console.log(response.statusText);
-          console.log(response.headers);
-          console.log(response.config);
+        .then(response =>{
+            //console.log(response.data);
+            this.setState({
+                states: response.data,
+            })
         });
+        
       }
 
       editing(id){
