@@ -73,10 +73,15 @@ class Button extends React.Component{
         var Class = this.buttonType(this.props.type) + 
                     this.buttonSize(this.props.size) +
                     this.buttonAlign(this.props.Align);
+        
+                    var Disabled = '';
+                    if(this.props.status == 'disabled'){
+                        Disabled = 'disabled'
+                    }
 
         
         return(
-            <button className={Class} onClick = {this.props.clickEvent}>{this.props.name}</button>
+            <button className={Class} onClick = {this.props.clickEvent} disabled={Disabled}>{this.props.name}</button>
         )
     }
 }
@@ -85,7 +90,7 @@ export default Button;
 
 /*Usage
 
-    <Button name={"NameOfButton"} clickEvent={"onClickFUnction"} Align={alignment} type={"TypeOfButton"} size={"SizeOfButton"}/>
+    <Button name={"NameOfButton"} status={"disbled/null"} clickEvent={"onClickFUnction"} Align={alignment} type={"TypeOfButton"} size={"SizeOfButton"}/>
 
     This Button Class built as per as Bootstrap doc and specification.
     options::
