@@ -31,6 +31,17 @@ class State extends React.Component{
         });
       }
 
+      getFromServer = () =>{
+        axios.get('http://localhost/oceangreen/admin/api/readState.php?Key=Authority')
+        .then(function(response) {
+          console.log(response.data);
+          console.log(response.status);
+          console.log(response.statusText);
+          console.log(response.headers);
+          console.log(response.config);
+        });
+      }
+
       editing(id){
         alert("You are editing state with id " + id);
       }
