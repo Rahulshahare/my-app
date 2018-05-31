@@ -20,7 +20,7 @@ class State extends React.Component{
         fetch('http://oceangreen.ml/admin/api/readState.php?Key=Authority')
         .then(blob => blob.json())
         .then(data => {
-          console.log(data);
+          //console.log(data);
           this.setState({states: data})
           //alert("this is New state"  + this.state.states);
           
@@ -51,6 +51,9 @@ class State extends React.Component{
 
     
     render(){
+        if(!this.state.states){
+            return"Loading....";
+        }
         return(
         <div>
             <div className="panel panel-primary">
