@@ -34,21 +34,37 @@ class AddStateModel extends React.Component{
             })
             return false;
         }else{
-            alert("we can add state");
+            //alert("we can add state");
         }
 
+        this.postToServer();
+        
+
+
+    }
+
+    postToServer = () =>{
         const params = new URLSearchParams();
         params.append('StateName', this.state.StateName);
+        params.append('itsNew', 'YES');
         
 
             axios.post('http://localhost/oceangreen/admin/api/AddNewState.php',params)
             .then(res => {
                 console.log(res);
                 console.log(res.data);
-                    if(res.data == 'Success'){
+                //console.log(res.data.data.length);
+                var copy = Object.assign({}, res.data.data);
+                console.log(JSON.stringify(copy)); 
+                
+                //console.log('comes'+ Object.values(res.data.data));
+                //its returning a length of an object 
+                //alert(res.data.status);
+                    if(res.data.status == 'Success'){
                         this.setState({
                             Success: this.state.StateName+' is added',
                         })
+                        this.props.Refresh(copy);
                     }
 
                     if(res.data == 'Available'){
@@ -58,10 +74,7 @@ class AddStateModel extends React.Component{
                     }
             })
 
-
     }
-
-    
     resetModalState = () =>{
         this.setState({
             StateName:'',
