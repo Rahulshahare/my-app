@@ -24,10 +24,30 @@ class State extends React.Component{
         axios.get('http://localhost/oceangreen/admin/api/readState.php?Key=Authority')
         .then(response =>{
             //console.log(response.data);
+            //console.log(JSON.stringify(response.data));
+            //alert(response.data);
             this.setState({
                 states: response.data,
             })
         });
+        
+      }
+      RefreshData = (data) =>{
+        //console.log(JSON.stringify(data));
+        var copy = Object.assign({}, this.state.states);
+        var copy2 = Object.assign({}, data);
+        var arr = Object.assign(copy, copy2);
+        console.log("Added here");
+        //console.log(arr.concat(data));
+        //console.log(this.state.States);
+        //console.log('realArr'+ Object.values(this.state.States));
+        //var cop = Object.assign({}, arr);
+                //console.log(Object.values(arr)); 
+                
+                    this.setState({states: this.state.states});
+                
+                
+        
         
       }
 
@@ -73,7 +93,8 @@ class State extends React.Component{
 
             <AddStateModel 
             ShowModel={this.state.showAddModal}
-            AddModelShowing={this.AddModelShowing}/>
+            AddModelShowing={this.AddModelShowing}
+            Refresh = {this.RefreshData}/>
         </div>
 
            
