@@ -2,7 +2,7 @@ import React from 'react';
 import StateMap  from './statemap';
 import Button from '../button';
 import AddStateModel from './addStateModal';
-
+import axios from 'axios';
 
 
 class State extends React.Component{
@@ -17,18 +17,7 @@ class State extends React.Component{
       }
     
       componentDidMount() {
-        fetch('http://localhost/oceangreen/admin/api/readState.php?Key=Authority')
-        .then(blob => blob.json())
-        .then(data => {
-          //console.log(data);
-          this.setState({states: data})
-          //alert("this is New state"  + this.state.states);
-          
-        })
-        .catch(e => {
-          console.log(e);
-          return e;
-        });
+        this.getFromServer();
       }
 
       getFromServer = () =>{
