@@ -1,7 +1,7 @@
 {
   "name": "my-app",
   "homepage": "http://myapp.github.io/myapp",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
