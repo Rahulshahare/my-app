@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../button';
 import Alert from './alert';
+import axios from 'axios';
 
 
 
@@ -36,25 +37,17 @@ class AddStateModel extends React.Component{
             alert("we can add state");
         }
 
-        fetch('http://localhost/oceangreen/admin/api/AddNewState.php ', {
-            method: 'post',
-            body: 'StateName='+ this.state.StateName,
-          })
-         
-          .then(function (data) {
-            console.log('Request succeeded with JSON response', data);
-            alert(data);
-          })
-          .catch(function (error) {
-            console.log('Request failed', error);
-          });
-          //save state
+        const params = new URLSearchParams();
+        params.append('StateName', this.state.StateName);
+        
 
-          axios.post('http://localhost/oceangreen/admin/api/AddNewState.php', {
-            firstName: 'StateName='+ this.state.StateName,
-          })
+          axios.post('http://localhost/oceangreen/admin/api/AddNewState.php',params)
           .then(function (response) {
             console.log(response);
+            const status = response.data;
+            if(status=='Nothing'){
+                alert('data is not posted');
+            }
           })
           .catch(function (error) {
             console.log(error);
