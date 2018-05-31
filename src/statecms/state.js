@@ -32,23 +32,29 @@ class State extends React.Component{
         });
         
       }
+
       RefreshData = (AddedStateName) =>{
-        //console.log(JSON.stringify(data));
-        var copy = Object.assign({}, this.state.states);
-        var copy2 = Object.assign({}, data);
-        var arr = Object.assign(copy, copy2);
-        console.log("Added here");
-        //console.log(arr.concat(data));
-        //console.log(this.state.States);
-        //console.log('realArr'+ Object.values(this.state.States));
-        //var cop = Object.assign({}, arr);
-                //console.log(Object.values(arr)); 
-                
-                    this.setState({states: this.state.states});
-                
-                
-        
-        
+
+        var url = "http://localhost/oceangreen/admin/api/getAddedState.php?StateName="+AddedStateName;
+            axios.get(url)
+                .then(response =>{
+                    
+                    if(response.data != "ERROR"){
+                        console.log(response.data);
+                        
+                        var x = this.state.states;
+                        var y = response.data;
+                        var z = x.concat(y);
+
+                        this.setState({
+                            states:z,
+                        })
+                        //for every single update, get the whole bunch of data is 
+                        //not a good practice. so here as the state is being added
+                        // i am fatching the associate data from state name and adding
+                        // to a primary state list. 
+                    }
+                })
       }
 
       editing(id){

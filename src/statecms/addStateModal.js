@@ -53,19 +53,13 @@ class AddStateModel extends React.Component{
             .then(res => {
                 //console.log(res);
                 //console.log(res.data);
-                //console.log(res.data.data.length);
-               // var copy = Object.assign({}, res.data.data);
-                //console.log(JSON.stringify(copy)); 
-                
-                //console.log('comes'+ Object.values(res.data.data));
-                //its returning a length of an object 
-                //alert(res.data.status);
                     if(res.data == 'Success'){
                         this.props.Refresh(this.state.StateName);
                         this.setState({
                             Success: this.state.StateName+' is added',
+                            StateName:'',
                         })
-                        //this.props.Refresh(copy);
+                        
                     }
 
                     if(res.data == 'Available'){
