@@ -41,18 +41,11 @@ class State extends React.Component{
                     
                     if(response.data != "ERROR"){
                         console.log(response.data);
-                        
                         var x = this.state.states;
                         var y = response.data;
                         var z = x.concat(y);
-
-                        this.setState({
-                            states:z,
-                        })
-                        //for every single update, get the whole bunch of data is 
-                        //not a good practice. so here as the state is being added
-                        // i am fatching the associate data from state name and adding
-                        // to a primary state list. 
+                            this.setState({ states:z,})
+                        
                     }
                 })
       }
