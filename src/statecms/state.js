@@ -17,7 +17,7 @@ class State extends React.Component{
       }
     
       componentDidMount() {
-        fetch('http://oceangreen.ml/admin/api/readState.php?Key=Authority')
+        fetch('http://localhost/oceangreen/admin/api/readState.php?Key=Authority')
         .then(blob => blob.json())
         .then(data => {
           //console.log(data);
