@@ -8,6 +8,7 @@ class AddStateModel extends React.Component{
         super(props);
         this.state = {
             StateName:'',
+            AddButtonStatus:'disabled',
         };
     }
     close= ()=>{
@@ -16,7 +17,13 @@ class AddStateModel extends React.Component{
     StateNameChange = (e) =>{
         this.setState({
             StateName: e.target.value,
+            AddButtonStatus:'',
         })
+        if(!this.state.StateName){
+            this.setState({
+                AddButtonStatus:'disabled',
+            })
+        }
     }
     render(){
         if(!this.props.ShowModel){
@@ -47,9 +54,8 @@ class AddStateModel extends React.Component{
                     </div>
                     
                     <div className="modal-footer">
+                    <Button name={"Add New State"} status={this.state.AddButtonStatus}  type={"primary"} size={"extrasmall"}/>
                     <Button name={"Close"} clickEvent={this.close}  type={"default"} size={"extrasmall"}/>
-                    <Button name={"Add New State"}   type={"primary"} size={"extrasmall"}/>
-                        
                     </div>
                     </div>
                 </div>
