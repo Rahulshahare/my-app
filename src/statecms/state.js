@@ -32,7 +32,7 @@ class State extends React.Component{
         });
         
       }
-      RefreshData = (data) =>{
+      RefreshData = (AddedStateName) =>{
         //console.log(JSON.stringify(data));
         var copy = Object.assign({}, this.state.states);
         var copy2 = Object.assign({}, data);
